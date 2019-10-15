@@ -1,0 +1,148 @@
+[is=codex-admin-form] {
+	&:not(.visible) {
+		display : none;
+	}
+
+	position   : relative;
+	height     : 100%;
+	overflow-y : scroll;
+
+	div.header {
+		height           : 60px;
+		background-color : white;
+		position         : sticky;
+		top              : 0;
+		width            : 100%;
+		border-bottom    : 1px solid #ddd;
+
+		i.icon {
+			line-height  : 60px;
+			width        : 60px;
+			text-align   : center;
+			float        : left;
+			margin-right : 16px;
+			color        : #73879C;
+			font-size    : 24px;
+			position     : relative;
+
+			&:after {
+				position    : absolute;
+				right       : 0;
+				top         : 10px;
+				height      : 40px;
+				bottom      : 10px;
+				content     : "";
+				border-left : 1px solid #c6dcee;
+			}
+		}
+
+		span.label {
+			display     : block;
+			color       : #3f5468;
+			padding-top : 14px;
+		}
+
+		span.id {
+			display     : block;
+			color       : #73879C;
+			font-size   : 11px;
+			font-weight : bold;
+
+			&:not(:empty):before {
+				font-weight : normal;
+				content     : "id: ";
+			}
+		}
+
+		.buttons {
+			float   : right;
+			height  : 60px;
+			padding : 10px 0;
+
+			span {
+				border-left : 1px solid #c6dcee;
+				color       : #3f5468;
+				width       : 50px;
+				text-align  : center;
+				line-height : 30px;
+				height      : 40px;
+				display     : block;
+				float       : right;
+				position    : relative;
+				transition  : all .2s;
+				cursor      : pointer;
+
+				&:not(:hover) {
+					color : #73879C !important;
+				}
+
+				&:hover {
+					line-height : 36px;
+				}
+
+				&:after {
+					content     : attr(data-label);
+					position    : absolute;
+					bottom      : 0px;
+					line-height : initial;
+					left        : 0;
+					width       : 50px;
+					font-size   : 9px;
+					font-family : Roboto;
+					font-weight : normal;
+					color       : #73879C;
+				}
+			}
+		}
+	}
+
+	form {
+		display   : flex;
+		flex-wrap : wrap;
+		padding   : 5px 5px 10px 5px;
+
+		section {
+			background-color : white;
+			border           : 1px solid #ddd;
+			flex-basis       : 0;
+			flex-grow        : 1;
+			min-width        : 400px;
+			margin           : 5px 5px 0 5px;
+
+			header {
+				border-bottom    : 1px solid #ddd;
+				padding          : 5px 10px;
+				color            : #293f54;
+				font-size        : 14px;
+				font-weight      : 700;
+				background-color : #e6e8ea;
+			}
+
+			div.field {
+				display       : flex;
+				border-bottom : 1px solid #ddd;
+
+				&:last-child {
+					border-bottom : 0;
+				}
+
+				> label {
+					padding          : 0 10px;
+					border-right     : 1px solid #ddd;
+					width            : 150px;
+					display          : inline-block;
+					font-size        : 11px;
+					line-height      : 22px;
+					background-color : #f9f9f9;
+
+				}
+
+				> div {
+					display : inline-block;
+					width   : ~"calc( 100% - 150px )";
+				}
+			}
+		}
+	}
+}
+

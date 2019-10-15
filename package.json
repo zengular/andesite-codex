@@ -1,0 +1,41 @@
+{
+  "_args": [
+    [
+      "zengular-codex@1.0.5",
+      "/Users/elvis/dev/htdocs/gmrnxt"
+    ]
+  ],
+  "_from": "zengular-codex@1.0.6",
+  "_id": "zengular-codex@1.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-Sq8YF+MIKen2kz6/f62T+huo8gm05DBCgw8C/Ulv6K/6W2mMj7RRuleEMLXVagi+diZIBRsi5yfRKhIDQOuG3Q==",
+  "_location": "/zengular-codex",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "zengular-codex@1.0.6",
+    "name": "zengular-codex",
+    "escapedName": "zengular-codex",
+    "rawSpec": "1.0.6",
+    "saveSpec": null,
+    "fetchSpec": "1.0.6"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/zengular-codex/-/zengular-codex-1.0.6.tgz",
+  "_shasum": "caf6d91fc09d1a148079767e96b2df361d75d916",
+  "_spec": "zengular-codex@1.0.6",
+  "_where": "/Users/elvis/dev/htdocs/gmrnxt",
+  "author": {
+    "name": "Gergely Laborci"
+  },
+  "bundleDependencies": false,
+  "dependencies": {},
+  "deprecated": false,
+  "license": "MIT",
+  "name": "zengular-codex",
+  "version": "1.0.6"
+}

@@ -1,0 +1,20 @@
+<div class="attachments">
+	{% for category, label in attachmentCategories %}
+		<div class="group">
+			<div (category) class="attachmentHolder" data-category="{{ category }}">
+				<header>{{ label }}</header>
+				{% for attachment in loop.parent.attachments[category] %}
+					<div (attachment) draggable="true" data-url="{{ attachment.url }}" data-category="{{ attachment.category }}" data-filename="{{ attachment.file }}">
+						{% if attachment.thumbnail %}
+							<img draggable="false" src="{{ attachment.thumbnail }}">
+						{% else %}
+							<div class="icon"><i class="fal {{ loop.parent.getClassNameForExtension(attachment.extension) }}"></i> {{ attachment.extension }}</div>
+						{% endif %}
+						<input title="{{ attachment.file }}" value="{{ attachment.file }}" readonly>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	{% endfor %}
+
+</div>

@@ -1,0 +1,73 @@
+[is=codex-admin-frame] {
+	header.page-header {
+		h2 {
+			padding     : 0;
+			margin      : 0;
+			color       : #73879C;
+			font-size   : 24px;
+			font-weight : 300;
+
+			i[\(header-icon\)] {
+				line-height      : 60px;
+				width            : 60px;
+				text-align       : center;
+				float            : left;
+				margin-right     : 16px;
+				background-color : #73879C;
+				color            : #e6e8ea;
+
+			}
+
+			span[\(header-title\)] {
+				line-height : 33px;
+				padding-top : 5px;
+				display     : block;
+			}
+
+			div.paging-info {
+				font-size : 11px;
+			}
+		}
+
+		.buttons {
+			float: right;
+			height: 60px;
+			padding: 10px 0;
+
+			span {
+				border-left : 1px solid #c6dcee;
+				color       : #3f5468;
+				width       : 50px;
+				text-align  : center;
+				line-height : 30px;
+				height      : 40px;
+				display     : block;
+				float       : right;
+				position    : relative;
+				transition  : all .2s;
+				cursor      : pointer;
+
+				&:not(:hover){
+					color:#73879C !important;
+				}
+
+				&:hover {
+					line-height : 36px;
+				}
+
+				&:after {
+					content     : attr(data-label);
+					position    : absolute;
+					bottom      : 0px;
+					line-height : initial;
+					left        : 0;
+					width       : 50px;
+					font-size   : 9px;
+					font-family : Roboto;
+					font-weight : normal;
+					color       : #73879C;
+				}
+			}
+		}
+	}
+}

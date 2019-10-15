@@ -1,0 +1,15 @@
+<header>
+	{% if avatar %}
+		<img class="avatar" src="{{ avatar }}">
+	{% else %}
+	<i class="icon fa-stack">
+		<i class="fa-stack-2x fas fa-circle"></i>
+		<i class="fa-stack-1x {{ icon }}"></i>
+	</i>
+	{% endif %}
+	<h1>{{ title }}</h1>
+	<span class="user" (logout)><i class="fas fa-times-circle logout"></i> {{ user }}</span>
+</header>
+<ul (menu)></ul>
+<div class="codex-logo"><i class="fas fa-infinity"></i> | Eternity Codex II</div>
+

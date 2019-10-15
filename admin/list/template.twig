@@ -1,0 +1,27 @@
+<div>
+	<table>
+		<thead>
+		<tr>
+			{% set cols=0 %}
+			{% for column in fields %}
+				{% if column.visible %}
+					<th data-field="{{ column.name }}" {% if column.sortable %}(sortable){% endif %}>{{ column.label }}</th>
+					{% set cols= cols+1 %}
+				{% endif %}
+			{% endfor %}
+		</tr>
+		</thead>
+		<tbody (list)></tbody>
+		<tfoot>
+		<tr>
+			<th colspan="{{ cols }}">
+				<div class="slider">
+					<i (step-page-left) class="left fas fa-arrow-alt-circle-left"></i>
+					<input (pager-slider) type="range" min="1" max="1" value="1">
+					<i (step-page-right) class="right fas fa-arrow-alt-circle-right"></i>
+				</div>
+			</th>
+		</tr>
+		</tfoot>
+	</table>
+</div>

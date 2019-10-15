@@ -1,0 +1,91 @@
+[is=codex-admin-tab] {
+
+	position              : relative;
+	color                 : #3f5468;
+	width                 : 100px;
+	overflow              : hidden;
+	margin-right          : 1px;
+	float                 : left;
+	line-height           : 22px;
+	font-size             : 11px;
+	padding               : 0 6px;
+	cursor                : pointer;
+	transition            : all .3s;
+	display               : grid;
+	grid-template-columns : 14px auto 10px;
+
+	&[data-selected=yes] {
+		background-color : #fff;
+		border-bottom    : 1px solid #fff;
+
+		& + div:not(:hover):before {
+			border-color : transparent !important;
+		}
+
+		border-radius    : 4px 4px 0 0;
+
+		i.close {
+			opacity : 1;
+		}
+	}
+
+	&.closed {
+		width   : 0;
+		opacity : 0;
+		padding : 0;
+	}
+
+	&:hover + div:before {
+		border-color : transparent !important;
+	}
+
+	&:not([data-selected=yes]) {
+		border-bottom : 1px solid transparent;
+		color         : #6fceee;
+
+		&:not(:first-child):not(:hover):before {
+			position    : absolute;
+			left        : 0;
+			top         : 2px;
+			content     : '';
+			height      : 18px;
+			border-left : 1px solid #516c86;
+		}
+
+		&:hover {
+			color:white;
+			background-color : rgba(255, 255, 255, .2);
+			border-color     : #15283a;
+			i.close {
+				opacity : .6;
+			}
+		}
+
+		border-radius : 6px;
+	}
+
+	span {
+		overflow      : hidden;
+		text-overflow : ellipsis;
+		white-space   : nowrap;
+	}
+
+	i.icon {
+		line-height : 22px;
+		font-size   : 10px;
+	}
+
+	i.close {
+		transition  : all .3s;
+		opacity     : 0;
+		font-size   : 10px;
+		line-height : 22px;
+		text-align  : right;
+
+		&:hover {
+			color : red;
+		}
+	}
+
+}
+
