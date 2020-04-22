@@ -1,6 +1,6 @@
 import ListButtonPlugin from "../plugin/types/ListButtonPlugin";
 
-@ListButtonPlugin.register()
+@ListButtonPlugin.register("ListButtonAddNew")
 export default class ListButtonAddNew extends ListButtonPlugin {
 
 	get label() { return 'Add New';}

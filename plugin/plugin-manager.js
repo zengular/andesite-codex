@@ -5,8 +5,8 @@ class PluginManager{
 	}
 
 
-	add(plugin){
-		this.plugins[plugin.name] = plugin;
+	add(name, plugin){
+		this.plugins[name] = plugin;
 	}
 
 	get(pluginNames, type, ...args){

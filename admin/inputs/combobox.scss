@@ -1,0 +1,90 @@
+[is="codex-input-combobox"] {
+
+	* {
+		box-sizing: border-box;
+		color: #333;
+		-webkit-font-smoothing: antialiased;
+		outline: none;
+	}
+	i.fa-keyboard {
+		font-size: 11px;
+		line-height: 22px;
+		width: 30px;
+		text-align: center;
+
+	}
+	input {
+		width: calc(100% - 35px);
+		border: 0;
+		background-color: transparent;
+		line-height: 22px;
+		padding: 0 10px 0 0;
+		color: #1b6d85;
+	}
+	div.options {
+		max-height: 120px;
+		overflow-y: scroll;
+		div {
+			font-size: 12px;
+			padding: 0 10px;
+			line-height: 20px;
+			border-top: 1px solid #eee;
+			transition: all .3s;
+			cursor: pointer;
+			&:before {
+				line-height: 20px;
+				font-family: "Font Awesome 5 Pro";
+				content: "\f054";
+				margin-right: 5px;
+				font-size: 8px;
+			}
+
+			&.exists {
+				color: #999;
+			}
+			&:not(.exists) {
+				color: #1b6d85;
+				&:hover, &.selected {
+					background-color: #00aeff;
+					color: white;
+					&:after {
+						float: right;
+						line-height: 20px;
+						color: white;
+						font-family: "Font Awesome 5 Pro";
+						content: "\f0fe";
+						font-weight: bold;
+					}
+				}
+			}
+		}
+	}
+
+	div.values {
+		div {
+			font-size: 11px;
+			padding: 0 10px;
+			line-height: 20px;
+			border-bottom: 1px solid #eee;
+			transition: all .3s;
+			color: #333;
+			&:hover i {
+				display: inline-block;
+			}
+			i {
+				display: none;
+				cursor: pointer;
+				float: right;
+				line-height: 20px;
+				color: #666;
+			}
+			&:before {
+				line-height: 20px;
+				font-family: "Font Awesome 5 Pro";
+				content: "\f054";
+				margin-right: 5px;
+				font-size: 8px;
+			}
+		}
+	}
+}

@@ -1,28 +1,28 @@
-import Application    from "zengular/core/application";
-import CodexFormFrame from "./admin/frame/brick";
+import {Application} from "zengular";
+import CodexFormFrame from "./admin/frame.brick";
+import {Ajax}         from "zengular-util";
 
-import "./frame/layout/brick";
-import "./admin/loader";
-import "./plugins/loader";
-import Ajax           from "zengular/core/ajax";
+import "./frame/layout.brick";
+import "zengular-codex/admin/~loader";
+import "zengular-codex/plugins/~loader";
 
 
-export default class  AdminApplication extends Application{
+export default class AdminApplication extends Application {
 
-	constructor(){
+	constructor() {
 		super(false, true);
 	}
 
-	initialize(){
-		this.listen('layout-rendered', (event)=>{
+	initialize() {
+		this.listen('layout-rendered', (event) => {
 			this.layout = event.data.layout;
 			this.run();
 		});
 		return Ajax.get('/menu').getJson
-		.then((xhr)=>this.menu = xhr.response);
+			.then((xhr) => this.menu = xhr.response);
 	}
 
-	run(){
+	run() {
 		this.layout.menu.addMenu(this.menu);
 		this.listen('SHOW-FORM', (event) => this.menuEventHandler(event));
 	}

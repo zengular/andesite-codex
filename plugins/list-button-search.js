@@ -1,6 +1,6 @@
 import ListButtonPlugin from "../plugin/types/ListButtonPlugin";
 
-@ListButtonPlugin.register()
+@ListButtonPlugin.register("ListButtonSearch")
 export default class ListButtonSearch extends ListButtonPlugin {
 
 	get label() { return 'Search';}

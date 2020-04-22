@@ -1,6 +1,6 @@
 import ListButtonPlugin from "../plugin/types/ListButtonPlugin";
 
-@ListButtonPlugin.register()
+@ListButtonPlugin.register("ListButtonReload")
 export default class ListButtonReload extends ListButtonPlugin {
 
 	get label() { return 'Reload';}

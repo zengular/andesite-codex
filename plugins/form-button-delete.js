@@ -1,9 +1,10 @@
 import FormButtonPlugin from "../plugin/types/FormButtonPlugin";
-import Modal            from "zengular-ui/modal/modal";
-import Ajax             from "zengular/core/ajax";
+//import Modal            from "zengular-ui/modal/modal";
+import {Ajax}           from "zengular-util";
 import AjaxErrorHandler from "../admin/ajax-error-handler";
+import ConfirmModal     from "zengular-codex/frame/confirm.modal";
 
-@FormButtonPlugin.register()
+@FormButtonPlugin.register("FormButtonDelete")
 export default class FormButtonDelete extends FormButtonPlugin {
 
 	get label() { return 'Delete';}
@@ -11,23 +12,18 @@ export default class FormButtonDelete extends FormButtonPlugin {
 	get color() { return 'red';}
 	createButton() { return this.form.id ? super.createButton() : false; }
 	action(event) {
-		let form = this.form;
-		let modal = new Modal();
-		modal.title = "DELETE ITEM";
-		modal.body = `<i class="${form.icon}"></i> <b>${form.label}</b><br>Do you really want to delete this iteme?`;
-		modal.addButton('Delete', () => {
-			form.fire('show-overlay');
-			modal.close();
-			Ajax.get('/' + form.urlBase + '/delete-item/' + form.id).get
-			.then(xhr => AjaxErrorHandler.handle(xhr))
-			.then((xhr) => form.tab.close())
-			.finally(() => {
-				form.fire('hide-overlay');
-				form.reloadList();
-			})
-			;
-		}, 'danger');
-		modal.addButton('Cancel', false);
-		modal.show();
+		ConfirmModal.modalify(true, (result)=>{
+			if(result){
+				this.form.fire('show-overlay');
+				Ajax.get('/' + this.form.urlBase + '/delete-item/' + this.form.id).get
+					.then(xhr => AjaxErrorHandler.handle(xhr))
+					.then((xhr) => this.form.tab.close())
+					.finally(() => {
+						this.form.fire('hide-overlay');
+						this.form.reloadList();
+					})
+				;
+			}
+		});
 	}
 }

@@ -1,0 +1,19 @@
+<header class="page-header">
+	<span class="buttons" (buttons)=""></span>
+
+	<h2>
+		<i (header-icon)></i>
+		<span (header-title)></span>
+		<div class="paging-info">
+			<i class="fas fa-layer-group"></i>
+			<span (page-current)></span> /
+			<span (page-count)></span>
+		</div>
+	</h2>
+</header>
+
+<div class="content-wrapper">
+	<div is="codex-admin-list" class="panel w-6x h-3x zero-left zero-right pull-up no-frame"></div>
+	<div is="codex-admin-tab-manager" class="panel w-6x h-3x pull-up zero-left zero-right pull-down no-frame"></div>
+</div>
+<div is="z-notification"></div>

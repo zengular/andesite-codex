@@ -1,6 +1,6 @@
 import FormButtonPlugin from "../plugin/types/FormButtonPlugin";
 
-@FormButtonPlugin.register()
+@FormButtonPlugin.register("FormButtonReload")
 export default class FormButtonReload extends FormButtonPlugin {
 
 	get label() { return 'Reload';}

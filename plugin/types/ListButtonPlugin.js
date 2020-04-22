@@ -1,7 +1,7 @@
 import Plugin from "../plugin";
 
 export default class ListButtonPlugin extends Plugin {
-	static get pluginType() {return ListButtonPlugin.name; }
+	static get pluginType() {return "ListButtonPlugin"; }
 
 	constructor(list){
 		super();

@@ -1,4 +1,6 @@
-import Modal from "zengular-ui/modal/modal";
+//import Modal from "zengular-ui/modal/modal";
+
+import ErrorModal from "../frame/error.modal";
 
 export default class AjaxErrorHandler {
 	static handle(xhr, callback = null) {
@@ -6,12 +8,7 @@ export default class AjaxErrorHandler {
 			let message;
 			if (typeof xhr.response?.message === "string") message = xhr.response?.message;
 			else message = `Some unknown error occured: ${xhr.statusText} (${xhr.status})`;
-			let modal = new Modal();
-			modal.title = "ERROR";
-			modal.body = message;
-			modal.addButton('Ok', false, 'danger');
-			modal.onClose = () => callback ? callback() : null;
-			modal.show();
+			ErrorModal.modalify({message});
 		}
 		return xhr;
 	}
