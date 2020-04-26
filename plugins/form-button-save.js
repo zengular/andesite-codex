@@ -2,8 +2,8 @@ import FormButtonPlugin     from "../plugin/types/FormButtonPlugin";
 import CodexAdminForm       from "../admin/form.brick";
 import {Ajax}               from "zengular-util";
 import AjaxErrorHandler     from "../admin/ajax-error-handler";
-import Alert                from "../../../@src/mission.web/js/modals/alert.brick";
 import ZengularNotification from "zengular-ui/bricks/zengular-notification.brick";
+import ErrorModal           from "zengular-codex/frame/error.modal";
 
 /**
  * @property {CodexAdminForm} form
@@ -29,7 +29,7 @@ export default class FormButtonSave extends FormButtonPlugin {
 						form.showValidationMessages(xhr.response.message)
 						ZengularNotification.show(ZengularNotification.style.danger, "fas fa-exclamation-triangle", "Validation error!");
 					} else {
-						Alert.modalify({title: 'Unkown error', icon: 'fas fa-exclamation-triangle', content: xhr.response.message});
+						ErrorModal.modalify({title: 'Unkown error', icon: 'fas fa-exclamation-triangle', content: xhr.response.message});
 						ZengularNotification.show(ZengularNotification.style.danger, "fas fa-exclamation-triangle", "Unkown error occured!<small>"+xhr.response.message+"</small>" );
 					}
 				} else {
