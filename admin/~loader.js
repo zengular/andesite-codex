@@ -15,6 +15,7 @@ import "./inputs/radio.brick";
 import "./inputs/select.brick";
 import "./inputs/string.brick";
 import "./inputs/text.brick";
+import "./inputs/time.brick";
 import "./inputs/color.brick";
 import "./inputs/combobox.brick";
 import "./inputs/fa-icon.brick";
