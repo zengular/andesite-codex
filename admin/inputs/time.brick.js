@@ -8,8 +8,8 @@ import "./time.less";
 export default class InputTime extends AbstractInputBrick {
 	getValue() {  return this.$$('input-element').node.value;}
 	setValue(value) {
-		if(value.length === 5) value = value + ':00';
-		console.log(value)
+		//if(value === null) value = '00:00:00';
+		if(typeof value === "string" && value.length === 5) value = value + ':00';
 		this.$$("input-element").node.value = value;
 	}
 }
