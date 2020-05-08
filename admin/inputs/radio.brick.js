@@ -15,7 +15,7 @@ export default class InputRadio extends AbstractInputBrick {
 
 	setValue(value) {
 		this.$$("input-element").each(input => {input.removeAttribute("checked")});
-		if (value) this.$$("input-element").filter(`[value=${value}]`).node.checked = true;
+		if (value) this.$$("input-element").filter(`[value="${value}"]`).node.checked = true;
 	}
 
 	preprocessOptions(options) {
