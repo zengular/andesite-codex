@@ -5,29 +5,29 @@
       "/Users/elvis/Work/htdocs/eternity-test"
     ]
   ],
-  "_from": "zengular-codex@2.0.27",
-  "_id": "zengular-codex@2.0.27",
+  "_from": "zengular-codex@2.0.28",
+  "_id": "zengular-codex@2.0.28",
   "_inBundle": false,
-  "_integrity": "sha512-/pMOPwDM/FHjrn3Dln9uRslasVrE1T/sbERLA+Yr9un4myO2bduBvUIe3wtUtxu05j8NdVEjLcV4mO+Uo/07ng==",
+  "_integrity": "sha512-HlxGPXkJKw8I9my6hgJ1ZCpQ5J3vVXcp19EO2XUc4BDf/2lhpSLaM4ETDOO5Za2bF9biiudLQvuBEIdHszNeeA==",
   "_location": "/zengular-codex",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "zengular-codex@2.0.27",
+    "raw": "zengular-codex@2.0.28",
     "name": "zengular-codex",
     "escapedName": "zengular-codex",
-    "rawSpec": "2.0.27",
+    "rawSpec": "2.0.28",
     "saveSpec": null,
-    "fetchSpec": "2.0.27"
+    "fetchSpec": "2.0.28"
   },
   "_requiredBy": [
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/zengular-codex/-/zengular-codex-2.0.27.tgz",
-  "_shasum": "a432363f02b47269abf6515661582fbe089f0113",
-  "_spec": "zengular-codex@2.0.27",
+  "_resolved": "https://registry.npmjs.org/zengular-codex/-/zengular-codex-2.0.28.tgz",
+  "_shasum": "a732dc61a862e1332a288ef205e1eac8efbaebcb",
+  "_spec": "zengular-codex@2.0.28",
   "_where": "/Users/elvis/work/htdocs/mik/login",
   "author": {
     "name": "Gergely Laborci"
@@ -39,5 +39,5 @@
   "deprecated": false,
   "license": "MIT",
   "name": "zengular-codex",
-  "version": "2.0.27"
+  "version": "2.0.28"
 }

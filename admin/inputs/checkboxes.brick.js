@@ -23,8 +23,8 @@ export default class InputCheckboxes extends AbstractInputBrick {
 
 	setValue(data) {
 		//this.$$("input-element").each(input => input.removeAttribute("checked"));
-		if(data instanceof Array) data.forEach(value=>{
-			this.$$("input-element").filter('[value="'+value+'"]').node.checked = true;
+		if (data instanceof Array) data.forEach(value => {
+			this.$$("input-element").filter('[value="' + value + '"]').each(item => item.checked = true);
 		});
 	}
 

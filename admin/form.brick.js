@@ -60,7 +60,7 @@ export default class CodexAdminForm extends Brick {
 		let promises = [];
 		this.sections.forEach(section => section.inputs.forEach(input => {
 			promises.push(
-				this.$$('input').filter(`[data-name=${input.field}`).node.controller.setOptions(input.options)
+				this.$$('input').filter(`[data-name=${input.field}]`).node.controller.setOptions(input.options)
 					.then(inputBrick => {
 						if (this.data.fields.hasOwnProperty(input.field)) {
 							inputBrick.setItemId(this.data.id);
