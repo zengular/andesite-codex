@@ -84,7 +84,7 @@ export default class ComboBox extends AbstractInputBrick {
 	}
 
 	getItems(value) {
-		if(!value) return Promise.resolve([]);
+		if (typeof value === "undefined" || value === null || value.length === 0) return Promise.resolve([]);
 		if (!Array.isArray(value)) value = [value];
 		return Ajax.get(this.options.url + value.join(',')).getJson.then(
 			(xhr) => {
