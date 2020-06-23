@@ -1,0 +1,17 @@
+<div class="modalify">
+	<header>
+		<i class=" inverse fal fa-image"></i>
+		<label>Image Editor</label>
+		<nav>
+			<div class="control">
+				<span class="size"> size: <span (width)>0</span> x <span (height)>0</span></span>
+				<input class="ratio" (ratio) type="text" placeholder="%" pattern="^[0-9]+:[0-9]+$">
+			</div>
+			<button (save)><i class="fal fa-save"></i></button>
+			<button (close)><i class="fal fa-times"></i></button>
+		</nav>
+	</header>
+	<section>
+		<img src="{{ img }}" (croppr)>
+	</section>
+</div>

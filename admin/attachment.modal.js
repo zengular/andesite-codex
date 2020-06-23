@@ -8,6 +8,7 @@ import "./attachment.scss";
 import {getClassNameForExtension} from "font-awesome-filetypes";
 import Contextmenu                from "zengular-ui/contextmenu/contextmenu";
 import AjaxErrorHandler           from "./ajax-error-handler";
+import CodexImageEditor           from "zengular-codex/admin/image-editor.modal";
 
 @modalify()
 @Brick.register('codex-admin-attachment', twig)
@@ -39,11 +40,17 @@ export default class CodexAdminAttachmentModal extends Brick {
 		this.menu.add('Copy path', 'far fa-copy').click(ctx => {
 			let category = ctx.dataset.category;
 			let filename = ctx.dataset.filename;
-			copy(category+'/'+filename);
+			copy(category + '/' + filename);
 		});
 		this.menu.add('Copy url', 'fas fa-copy').click(ctx => {
 			let url = ctx.dataset.url;
 			copy(url);
+		});
+		this.menu.add('Edit image', 'fas fa-image', 'image-edit').click(ctx => {
+			let category = ctx.dataset.category;
+			let filename = ctx.dataset.filename;
+			let url = ctx.dataset.url;
+			this.imageEdit(url, category, filename);
 		});
 
 	}
@@ -66,6 +73,11 @@ export default class CodexAdminAttachmentModal extends Brick {
 		this.$$('attachment')
 			.listen('contextmenu', (event, target) => {
 				event.preventDefault();
+				if (target.dataset.type === 'image') {
+					this.menu.enable('image-edit')
+				} else {
+					this.menu.disable('image-edit')
+				}
 				this.menu.show(event, target);
 			})
 			.listen('dragstart', (event, target) => {
@@ -80,7 +92,7 @@ export default class CodexAdminAttachmentModal extends Brick {
 			});
 
 		this.$$('trash')
-			.listen('dragover', even=>event.preventDefault())
+			.listen('dragover', even => event.preventDefault())
 			.listen('dragenter', (event, target) => {
 				target.classList.remove('fal');
 				target.classList.add('fas');
@@ -172,6 +184,24 @@ export default class CodexAdminAttachmentModal extends Brick {
 			});
 	}
 
+	crop(category, filename, data) {
+		this.fire('show-overlay');
+		Ajax.json(`${this.form.urlBase}/attachment/crop/${this.form.data.id}`, {category, filename, data}).getJson
+			.then(xhr => AjaxErrorHandler.handle(xhr))
+			.finally(() => {
+				this.render();
+				this.fire('hide-overlay')
+			});
+	}
+
 	renameAttachment(filename, category) {}
+
+	imageEdit(url, category, filename) {
+		CodexImageEditor.modalify({
+			url: url
+		}, (data) => {
+			if (data !== false) this.crop(category, filename, data);
+		});
+	}
 
 }

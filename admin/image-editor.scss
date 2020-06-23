@@ -1,0 +1,26 @@
+[is=modal--codex-image-editor] {
+	div.control{
+		height:44px;
+		border-right: 1px solid #ccc;
+		float: left;
+		span.size{
+			font-size: 12px;
+			text-align: right;
+			padding-right: 10px;
+			color: #999;
+		}
+		input.ratio {
+			display:block;
+			margin: 0;
+			border: 0;
+			font-size: 13px;
+			text-align: right;
+			padding: 0 15px;
+			color: #666;
+			width: 100px;
+			&:invalid{
+				color: #7f1f1f;
+			}
+		}
+	}
+}
