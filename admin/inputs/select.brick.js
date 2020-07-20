@@ -10,7 +10,12 @@ import "./select.less";
 export default class InputSelect extends AbstractInputBrick {
 
 	getValue() { return this.$$("input-element").node.value;}
-	setValue(value) { this.$$("input-element").node.value = value;}
+
+	setValue(value) {
+		if(value === null) value = '';
+		this.$$("input-element").node.value = value;
+	}
+
 	preprocessOptions(options) {
 		if (!(options.options instanceof Array)) {
 			let opts = [];
