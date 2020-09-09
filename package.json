@@ -1,41 +1,42 @@
 {
   "_args": [
     [
-      "zengular-codex@2.0.32",
-      "/Users/elvis/work/htdocs/365doctors"
+      "zengular-codex@2.0.33",
+      "/Users/elvis/Work/htdocs/gamer365"
     ]
   ],
-  "_from": "zengular-codex@2.0.32",
-  "_id": "zengular-codex@2.0.32",
+  "_from": "zengular-codex@2.0.33",
+  "_id": "zengular-codex@2.0.33",
   "_inBundle": false,
-  "_integrity": "sha512-nAebAr5qadV0ErK8vKiSDWSVcUMG6Sv7DJ9F1N33vJfc/WuJBKskuevAU/4T9vyLVVc+GO8mtoegh951CYrf4A==",
+  "_integrity": "sha512-MRTHhjLK0uDFrY8/QRyGSWFn4bVdWraHFmq+n/Z06CLbIWDjZpRIdZY43erlSAlyrQNkEq0DcS3Pll30z2LIEw==",
   "_location": "/zengular-codex",
   "_phantomChildren": {},
   "_requested": {
     "type": "version",
     "registry": true,
-    "raw": "zengular-codex@2.0.32",
+    "raw": "zengular-codex@2.0.33",
     "name": "zengular-codex",
     "escapedName": "zengular-codex",
-    "rawSpec": "2.0.32",
+    "rawSpec": "2.0.33",
     "saveSpec": null,
-    "fetchSpec": "2.0.32"
+    "fetchSpec": "2.0.33"
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/zengular-codex/-/zengular-codex-2.0.32.tgz",
+  "_resolved": "https://registry.npmjs.org/zengular-codex/-/zengular-codex-2.0.33.tgz",
   "_shasum": "b6c7e1316797335180f9b95b958b3fab14598922",
-  "_spec": "2.0.32",
-  "_where": "/Users/elvis/work/htdocs/365doctors",
+  "_spec": "2.0.33",
+  "_where": "/Users/elvis/Work/htdocs/gamer365",
   "author": {
     "name": "Gergely Laborci"
   },
   "dependencies": {
-    "font-awesome-filetypes": "^2.1.0"
+    "font-awesome-filetypes": "^2.1.0",
+    "indent-textarea": "^2.0.2"
   },
   "deprecated": false,
   "license": "MIT",
   "name": "zengular-codex",
-  "version": "2.0.32"
+  "version": "2.0.33"
 }
