@@ -15,7 +15,7 @@
 						<header>{{ label }} <i>({{ category }})</i></header>
 						{% for attachment in loop.parent.attachments[category] %}
 							<div (attachment) draggable="true" data-url="{{ attachment.url }}"
-								  data-category="{{ attachment.category }}" data-filename="{{ attachment.file }}" data-type="{% if attachment.thumbnail %}image{% else %}file{% endif %}">
+								  data-category="{{ attachment.category }}" data-filename="{{ attachment.file }}" data-ordinal="{{ attachment.ordinal }}" data-type="{% if attachment.thumbnail %}image{% else %}file{% endif %}">
 								{% if attachment.thumbnail %}
 									<img draggable="false" src="{{ attachment.thumbnail }}">
 								{% else %}

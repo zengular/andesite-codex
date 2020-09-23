@@ -1,14 +1,15 @@
-import {modalify} from "zengular-ui";
-import {Brick}    from "zengular";
-import twig       from "./attachment.twig";
-import copy       from "copy-text-to-clipboard";
-import {Ajax}     from "zengular-util";
+import {DragAndDrop, modalify} from "zengular-ui";
+import {Brick}                 from "zengular";
+import twig                    from "./attachment.twig";
+import copy                    from "copy-text-to-clipboard";
+import {Ajax}                  from "zengular-util";
 import "./attachment.scss";
 
 import {getClassNameForExtension} from "font-awesome-filetypes";
 import Contextmenu                from "zengular-ui/contextmenu/contextmenu";
 import AjaxErrorHandler           from "./ajax-error-handler";
 import CodexImageEditor           from "zengular-codex/admin/image-editor.modal";
+
 
 @modalify()
 @Brick.register('codex-admin-attachment', twig)
@@ -23,11 +24,11 @@ export default class CodexAdminAttachmentModal extends Brick {
 		this.menu.add('Download', 'fas fa-cloud-download-alt').click(ctx => {
 			this.openAttachment(ctx.dataset.url);
 		});
-//		this.menu.add('Rename', 'fas fa-edit').click(ctx => {
-//			let category = ctx.dataset.category;
-//			let filename = ctx.dataset.filename;
-//			this.renameAttachment(filename, category);
-//		});
+		this.menu.add('Rename', 'fas fa-edit').click(ctx => {
+			let category = ctx.dataset.category;
+			let filename = ctx.dataset.filename;
+			this.renameAttachment(filename, category);
+		});
 		this.menu.add('Delete', 'fal fa-trash-alt').click(ctx => {
 			let category = ctx.dataset.category;
 			let filename = ctx.dataset.filename;
@@ -83,6 +84,8 @@ export default class CodexAdminAttachmentModal extends Brick {
 			.listen('dragstart', (event, target) => {
 				event.dataTransfer.setData('filename', target.dataset.filename);
 				event.dataTransfer.setData('category', target.dataset.category);
+				event.dataTransfer.setData('source:' + target.dataset.category, '');
+				event.dataTransfer.setData('filename:' + target.dataset.filename, '');
 				event.dataTransfer.setData('action', "copy");
 			})
 			.listen('dblclick', (event, target) => {
@@ -109,13 +112,47 @@ export default class CodexAdminAttachmentModal extends Brick {
 				}
 			});
 
-		this.$$("category", node => node.overCounter = 0)
-			.listen('dragover', (event) => {
-				event.preventDefault();
-			})
+		this.$$('attachment', node => node.overCounter = 0)
+			.listen('dragover', (event) => event.preventDefault())
 			.listen('dragenter', (event, target) => {
 				target.overCounter++;
-				target.classList.add('dragover');
+				console.log(event.dataTransfer.types);
+				console.log()
+				if (event.dataTransfer.types.indexOf('source:' + target.dataset.category) !== -1 &&
+					event.dataTransfer.types.indexOf('filename:' + target.dataset.filename) === -1
+				) {
+					target.classList.add('dragover');
+				}
+				event.preventDefault();
+			})
+			.listen('dragleave', (event, target) => {
+				target.overCounter--;
+				if (target.overCounter === 0) target.classList.remove('dragover');
+				event.preventDefault();
+			})
+			.listen('drop', (event, target) => {
+				if (event.dataTransfer.types.indexOf('source:' + target.dataset.category) !== -1&&
+					event.dataTransfer.types.indexOf('filename:' + target.dataset.filename) === -1) {
+					event.preventDefault();
+					event.stopImmediatePropagation();
+					target.classList.remove('dragover');
+					target.overCounter = 0;
+
+					let filename = event.dataTransfer.getData('filename');
+					let fileSource = event.dataTransfer.getData('category');
+
+					this.reorderAttachment(filename, fileSource, target.dataset.ordinal);
+				}
+			});
+
+
+		this.$$("category", node => node.overCounter = 0)
+			.listen('dragover', (event) => event.preventDefault())
+			.listen('dragenter', (event, target) => {
+				target.overCounter++;
+				if (event.dataTransfer.types.indexOf('source:' + target.dataset.category) === -1) {
+					target.classList.add('dragover');
+				}
 				event.preventDefault();
 			})
 			.listen('dragleave', (event, target) => {
@@ -194,7 +231,30 @@ export default class CodexAdminAttachmentModal extends Brick {
 			});
 	}
 
-	renameAttachment(filename, category) {}
+	renameAttachment(filename, category) {
+		let newname = prompt('', filename);
+		if (newname.trim() === '' || newname === filename) {
+			return;
+		} else {
+			this.fire('show-overlay');
+			Ajax.json(`${this.form.urlBase}/attachment/rename/${this.form.data.id}`, {category, filename, newname}).getJson
+				.then(xhr => AjaxErrorHandler.handle(xhr))
+				.finally(() => {
+					this.render();
+					this.fire('hide-overlay')
+				});
+		}
+	}
+
+	reorderAttachment(filename, category, ordinal){
+		this.fire('show-overlay');
+		Ajax.json(`${this.form.urlBase}/attachment/reorder/${this.form.data.id}`, {category, filename, sequence: ordinal}).getJson
+			.then(xhr => AjaxErrorHandler.handle(xhr))
+			.finally(() => {
+				this.render();
+				this.fire('hide-overlay')
+			});
+	}
 
 	imageEdit(url, category, filename) {
 		CodexImageEditor.modalify({

@@ -8,6 +8,7 @@ import "./tab-manager.brick";
 import "./inputs/checkbox.brick";
 import "./inputs/checkboxes.brick";
 import "./inputs/date.brick";
+import "./inputs/code.brick";
 import "./inputs/datetime.brick";
 import "./inputs/float.brick";
 import "./inputs/integer.brick";
