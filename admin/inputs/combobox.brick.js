@@ -5,7 +5,6 @@ import "./combobox.scss";
 import {Ajax}             from "zengular-util";
 
 @Brick.register('codex-input-combobox', twig)
-@Brick.registerSubBricksOnRender()
 @Brick.renderOnConstruct(false)
 export default class ComboBox extends AbstractInputBrick {
 

@@ -5,7 +5,6 @@ import CodexLayoutMenuBrick    from "./menu.brick";
 import CodexLayoutContentBrick from "./content.brick";
 
 @Brick.register('codex-layout', twig)
-@Brick.registerSubBricksOnRender()
 export default class CodexLayoutBrick extends Brick {
 
 	onInitialize() {

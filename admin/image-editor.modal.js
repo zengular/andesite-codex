@@ -8,7 +8,6 @@ import "croppr/dist/croppr.min.css"
 
 @modalify()
 @Brick.register('codex-image-editor', twig)
-@Brick.registerSubBricksOnRender()
 @Brick.renderOnConstruct(false)
 export default class CodexImageEditor extends Brick {
 

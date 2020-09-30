@@ -13,7 +13,6 @@ import CodexImageEditor           from "zengular-codex/admin/image-editor.modal"
 
 @modalify()
 @Brick.register('codex-admin-attachment', twig)
-@Brick.registerSubBricksOnRender()
 @Brick.renderOnConstruct(false)
 export default class CodexAdminAttachmentModal extends Brick {
 

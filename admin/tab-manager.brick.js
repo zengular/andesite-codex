@@ -6,7 +6,6 @@ import CodexAdminForm from "./form.brick";
 
 
 @Brick.register('codex-admin-tab-manager', twig)
-@Brick.registerSubBricksOnRender()
 export default class CodexAdminTabManager extends Brick {
 
 	onInitialize() {

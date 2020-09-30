@@ -5,8 +5,6 @@ import "./code.less";
 import * as  indentation  from 'indent-textarea';
 
 @Brick.register('codex-input-code', twig)
-@Brick.registerSubBricksOnRender()
-
 export default class InputCode extends AbstractInputBrick {
 	getDefaultOptions() { return {rows: 5}}
 	getValue() { return this.$$("input").node.value;}

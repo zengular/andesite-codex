@@ -3,8 +3,6 @@ import twig  from "./tab.twig";
 import "./tab.less";
 
 @Brick.register('codex-admin-tab', twig)
-@Brick.registerSubBricksOnRender()
-@Brick.observeAttributes(['data-label', 'data-icon', 'data-selected'])
 export default class CodexAdminTab extends Brick {
 
 	onInitialize() {
@@ -18,7 +16,7 @@ export default class CodexAdminTab extends Brick {
 			selected: this.dataset.selected
 		};
 	}
-
+	@Brick.attr('data-label', 'data-icon', 'data-selected')
 	onAttributeChange() {this.render();}
 
 	onRender() {

@@ -4,7 +4,6 @@ import twig               from "./show.twig";
 import "./show.less";
 
 @Brick.register('codex-input-show', twig)
-@Brick.registerSubBricksOnRender()
 export default class InputString extends AbstractInputBrick {
 	getValue() { return this._value;}
 	setValue(value) {

@@ -4,7 +4,6 @@ import twig               from "./time.twig";
 import "./time.less";
 
 @Brick.register('codex-input-time', twig)
-@Brick.registerSubBricksOnRender()
 export default class InputTime extends AbstractInputBrick {
 	getValue() {  return this.$$('input-element').node.value;}
 	setValue(value) {

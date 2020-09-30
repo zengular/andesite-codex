@@ -6,8 +6,6 @@ import {datetimeLocal}    from "zengular-util";
 
 
 @Brick.register('codex-input-datetime', twig)
-@Brick.registerSubBricksOnRender()
-
 export default class InputDatetime extends AbstractInputBrick {
 
 	getValue() {

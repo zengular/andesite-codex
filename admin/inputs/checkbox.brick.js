@@ -4,7 +4,6 @@ import twig               from "./checkbox.twig";
 import "./checkbox.less";
 
 @Brick.register('codex-input-checkbox', twig)
-@Brick.registerSubBricksOnRender()
 export default class InputCheckbox extends AbstractInputBrick {
 	getValue() {return this.$$('input-element').node.checked;}
 	setValue(value) {this.$$('input-element').node.checked = value;}

@@ -10,7 +10,6 @@ import FormButtonPlugin from "../plugin/types/FormButtonPlugin";
 import AjaxErrorHandler from "./ajax-error-handler";
 
 @Brick.register('codex-admin-form', twig)
-@Brick.registerSubBricksOnRender()
 export default class CodexAdminForm extends Brick {
 
 	onInitialize() {

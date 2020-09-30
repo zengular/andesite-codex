@@ -4,9 +4,7 @@ import twig               from "./checkboxes.twig";
 import "./checkboxes.less";
 
 @Brick.register('codex-input-checkboxes', twig)
-@Brick.registerSubBricksOnRender()
 @Brick.renderOnConstruct(false)
-
 export default class InputCheckboxes extends AbstractInputBrick {
 
 	getValue() {

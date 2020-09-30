@@ -4,7 +4,6 @@ import twig               from "./fa-icon.twig";
 import "./fa-icon.scss";
 
 @Brick.register('codex-input-fa-icon', twig)
-@Brick.registerSubBricksOnRender()
 export default class InputString extends AbstractInputBrick {
 	getValue() {
 		let style = this.$$("style").node.value;

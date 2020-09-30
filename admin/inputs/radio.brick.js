@@ -4,7 +4,6 @@ import twig               from "./radio.twig";
 import "./radio.less";
 
 @Brick.register('codex-input-radio', twig)
-@Brick.registerSubBricksOnRender()
 @Brick.renderOnConstruct(false)
 export default class InputRadio extends AbstractInputBrick {
 

@@ -10,7 +10,6 @@ import pluginManager        from "../plugin/plugin-manager";
 import ListButtonPlugin     from "../plugin/types/ListButtonPlugin";
 
 @Brick.register('codex-admin-frame', twig)
-@Brick.registerSubBricksOnRender()
 export default class CodexAdminFrame extends Brick {
 
 

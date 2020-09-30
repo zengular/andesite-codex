@@ -4,8 +4,6 @@ import twig               from "./float.twig";
 import "./float.less";
 
 @Brick.register('codex-input-float', twig)
-@Brick.registerSubBricksOnRender()
-
 export default class InputInteger extends AbstractInputBrick {
 
 	getValue() {

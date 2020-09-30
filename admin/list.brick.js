@@ -6,7 +6,6 @@ import pluginManager        from "../plugin/plugin-manager";
 import ListPreprocessPlugin from "../plugin/types/ListPreprocessPlugin";
 
 @Brick.register('codex-admin-list', twig)
-@Brick.registerSubBricksOnRender()
 @Brick.renderOnConstruct(false)
 export default class CodexAdminList extends Brick {
 
